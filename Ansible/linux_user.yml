@@ -1,0 +1,20 @@
+---
+- name: Add User to Linux Machines
+  hosts: linux
+  become: yes
+  vars:
+    new_user: "ansible"
+    user_password: "{{ 'Password of Choice' | password_hash('sha512') }}"
+    admin_group: "{{ 'wheel' }}"
+
+  tasks:
+    - name: Ensure admin group exists
+      ansible.builtin.group:
+        name: "{{ admin_group }}"
+        state: present
+
+    - name: Create user
+      ansible.builtin.user:
+        name: "{{ admin_group }}"
+        append: yes
+        password: "{{ user_password }}"
