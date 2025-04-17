@@ -1,0 +1,18 @@
+---
+- name: Create Windows Domain User
+  hosts: mgmt01-jan.jan.local
+  gather_facts: no
+  vars:
+    ad_domain_user: "jan-adm"
+    ad_domain_password: "trapmaster8!"
+    domain_name: "jan.local"
+  tasks:
+    - name: Create a new AD user
+      microsoft.ad.user:
+        name: andible
+        state: present
+        firstname: ansible
+        surname: 
+        password: "trapmaster8!"
+        domain_username: "{{ ad_domain_user }}"
+        domain_password: "{{ ad_domain_password }}"
