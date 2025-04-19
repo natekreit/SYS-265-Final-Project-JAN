@@ -1,0 +1,14 @@
+---
+- name: Playbook to Install Firefox
+  hosts: util
+  become: true
+  tasks:
+    - name: Enable Epel Repository on Rocky
+      yum:
+        name: epel-release
+        state: present
+
+    - name: Install Firefox via yum
+      yum:
+        name: firefox
+        state: present
