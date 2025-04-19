@@ -9,7 +9,7 @@
   tasks:
     - name: Create a new AD user
       microsoft.ad.user:
-        name: andible
+        name: ansible
         state: present
         firstname: ansible
         surname: 
