@@ -1,6 +1,6 @@
 [util]
 util01-jan
-[docker]
+[ubuntu]
 docker01-jan
 [windows]
 wks01-jan.jan.local
